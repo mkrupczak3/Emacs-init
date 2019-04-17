@@ -62,7 +62,7 @@
 (require 'package)
 
 (add-to-list 'package-archives
-             '("MELPA Stable" . "https://stable.melpa.org/packages/") t)
+             '("MELPA Stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
 ;; Other package sources to try and help install themes (or other stuff)
@@ -127,3 +127,21 @@
 ;;     (color-theme-dark-laptop)))
 
 ;; (global-set-key (kbd "<f9> n") 'toggle-night-color-theme)
+
+;; ;; 2019-04-17
+;; ;; Failed attempt to get broken ssh tramp working on windows
+;; (add-to-list 'load-path
+;;  (expand-file-name "c:/Program Files/PuTTY/plink.exe"))
+;; (require 'tramp)
+;; ;(setq tramp-chunksize "500")
+;; (setq tramp-default-method "plink")
+
+;; Set default python indentation
+(setq python-indent-offset 4)
+
+;; 2019-04-17
+;; AUCTex tex mode config
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-save-query nil)
+;(setq TeX-PDF-mode t)
