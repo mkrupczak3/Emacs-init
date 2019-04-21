@@ -128,7 +128,11 @@
 
 ;; (global-set-key (kbd "<f9> n") 'toggle-night-color-theme)
 
+
 ;; ;; 2019-04-17
+;; ;; DEPRECATED, best to use plink on windows instead, e.g. :
+;; ;; C-x C-f /plink:user@host:/path/to/file
+;;
 ;; ;; Failed attempt to get broken ssh tramp working on windows
 ;; (add-to-list 'load-path
 ;;  (expand-file-name "c:/Program Files/PuTTY/plink.exe"))
