@@ -128,6 +128,12 @@
 
 ;; (global-set-key (kbd "<f9> n") 'toggle-night-color-theme)
 
+;; 2019-02-27
+;; Attempting to install pdf-tools
+;; https://github.com/politza/pdf-tools
+;; May only work on linux
+(pdf-tools-install)
+
 
 ;; ;; 2019-04-17
 ;; ;; DEPRECATED, best to use plink on windows instead, e.g. :
