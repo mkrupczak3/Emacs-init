@@ -11,7 +11,7 @@ git remote add -t \* -f origin <repository-url>
 
 git checkout master
 
-'''
+```
 ;; Basics
 (set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
@@ -169,4 +169,4 @@ git checkout master
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
 ;(setq TeX-PDF-mode t)
-'''
+```
