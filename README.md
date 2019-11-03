@@ -11,6 +11,8 @@ git remote add -t \* -f origin <repository-url>
 
 git checkout master
 
+# Pasteable init.el (may not be latest version)
+
 ```
 ;; Basics
 (set-face-attribute 'default nil :height 140)
