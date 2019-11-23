@@ -171,4 +171,24 @@ git checkout master
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
 ;(setq TeX-PDF-mode t)
+
+;; 2019-11-23
+;; Elpy python IDE for emacs installation
+;; https://github.com/jorgenschaefer/elpy
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
+
+;; 2019-11-23
+;; python 3 by default
+;; https://stackoverflow.com/questions/11071701/python-3-in-emacs
+(setq py-python-command "python3")
+;; change default interpreter to python3
+(defcustom python-shell-interpreter "python3"
+  "Default Python interpreter for shell."
+  :type 'string
+  :group 'python)
+;; Command to change it back at will:
+;; M-x customize-variable [RET] python-shell-interpreter [RET]
 ```
