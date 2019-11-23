@@ -155,3 +155,10 @@
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
 ;(setq TeX-PDF-mode t)
+
+;; 2019-11-23
+;; Elpy python IDE for emacs installation
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable))
