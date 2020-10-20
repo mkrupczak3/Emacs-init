@@ -13,7 +13,7 @@ git checkout master
 
 ## Pasteable init.el (may not be latest version)
 
-```
+``` lisp
 ;; Basics
 (set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
