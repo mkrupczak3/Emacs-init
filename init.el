@@ -2,6 +2,8 @@
 (set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
 (setq-default show-paren-mode 1)
 (if window-system (tool-bar-mode 0))
 (if (boundp 'aquamacs-version) (tabbar-mode 0))
