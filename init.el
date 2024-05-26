@@ -177,3 +177,6 @@
   :group 'python)
 ;; Command to change it back at will:
 ;; M-x customize-variable [RET] python-shell-interpreter [RET]
+
+;; major mode for R scripts
+(use-package ess)
