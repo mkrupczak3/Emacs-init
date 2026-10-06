@@ -2,8 +2,6 @@
 (set-face-attribute 'default nil :height 140)
 (setq-default visible-bell 1)
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
 (setq-default show-paren-mode 1)
 (if window-system (tool-bar-mode 0))
 (if (boundp 'aquamacs-version) (tabbar-mode 0))
@@ -65,7 +63,7 @@
 
 (add-to-list 'package-archives
              '("MELPA Stable" . "https://stable.melpa.org/packages/"))
-(package-initialize)
+;; (package-initialize)
 
 ;; Other package sources to try and help install themes (or other stuff)
 ;; failed on windows, check out https://github.com/mswift42/warm-night-theme
@@ -73,110 +71,32 @@
                          ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 
+;; ;; 2019-11-23
+;; ;; python 3 by default
+;; ;; https://stackoverflow.com/questions/11071701/python-3-in-emacs
+;; (setq py-python-command "python3")
+;; ;; change default interpreter to python3
+;; (defcustom python-shell-interpreter "python3"
+;;   "Default Python interpreter for shell."
+;;   :type 'string
+;;   :group 'python)
+;; ;; Command to change it back at will:
+;; ;; M-x customize-variable [RET] python-shell-interpreter [RET]
 
-;; ;; 2017-10-28
-;; ;; Flycheck stuff
-;; ;; Not officially supported on Windows
-;; ;; Requires Node.js and NPM
-;; ;; requires JSLinter
-;; ;; npm install jslinter -g
-;; (require 'json)
-;; (require 'flycheck)
-;; (defun my-parse-jslinter-warning (warning)
-;;   (flycheck-error-new
-;;    :line (1+ (cdr (assoc 'line warning)))
-;;    :column (1+ (cdr (assoc 'column warning)))
-;;    :message (cdr (assoc 'message warning))
-;;    :level 'error
-;;    :buffer (current-buffer)
-;;    :checker 'javascript-jslinter))
-;; (defun jslinter-error-parser (output checker buffer)
-;;   (mapcar 'parse-jslinter-warning
-;;           (cdr (assoc 'warnings (aref (json-read-from-string output) 0)))))
-;; (flycheck-define-checker javascript-jslinter
-;;   "A JavaScript syntax and style checker based on JSLinter.
-
-;; See URL `https://github.com/tensor5/JSLinter'."
-;;   :command ("c:/Users/matth/AppData/Roaming/npm/node_modules/jslinter/jslint" "--raw" source)
-;;   :error-parser jslinter-error-parser
-;;   :modes (js-mode js2-mode js3-mode))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(ispell-program-name "/usr/bin/ispell")
+ '(package-selected-packages '(ess rust-mode ## go-mode k8s-mode dockerfile-mode docker)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; 2017-12-16
-;; Attempting to have some kind of night mode
-;; (load-library "color-theme")
-;; (color-theme-select)
-;; (defun toggle-night-color-theme ()
-;;   "Switch to/from night color scheme."
-;;   (interactive)
-;;   (require 'color-theme)
-;;   (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
-;;       (color-theme-snapshot) ; restore default (light) colors
-;;     ;; create the snapshot if necessary
-;;     (when (not (commandp 'color-theme-snapshot))
-;;       (fset 'color-theme-snapshot (color-theme-make-snapshot)))
-;;     (color-theme-dark-laptop)))
-
-;; (global-set-key (kbd "<f9> n") 'toggle-night-color-theme)
-
-;; 2019-02-27
-;; Attempting to install pdf-tools
-;; https://github.com/politza/pdf-tools
-;; May only work on linux
-(pdf-tools-install)
-
-
-;; ;; 2019-04-17
-;; ;; DEPRECATED, best to use plink on windows instead, e.g. :
-;; ;; C-x C-f /plink:user@host:/path/to/file
-;;
-;; ;; Failed attempt to get broken ssh tramp working on windows
-;; (add-to-list 'load-path
-;;  (expand-file-name "c:/Program Files/PuTTY/plink.exe"))
-;; (require 'tramp)
-;; ;(setq tramp-chunksize "500")
-;; (setq tramp-default-method "plink")
-
-;; Set default python indentation
-(setq python-indent-offset 4)
-
-;; 2019-04-17
-;; AUCTex tex mode config
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq TeX-save-query nil)
-;(setq TeX-PDF-mode t)
-
-;; 2019-11-23
-;; Elpy python IDE for emacs installation
-;; https://github.com/jorgenschaefer/elpy
-(use-package elpy
-  :ensure t
-  :init
-  (elpy-enable))
-
-;; 2019-11-23
-;; python 3 by default
-;; https://stackoverflow.com/questions/11071701/python-3-in-emacs
-(setq py-python-command "python3")
-;; change default interpreter to python3
-(defcustom python-shell-interpreter "python3"
-  "Default Python interpreter for shell."
-  :type 'string
-  :group 'python)
-;; Command to change it back at will:
-;; M-x customize-variable [RET] python-shell-interpreter [RET]
 
 ;; major mode for R scripts
 (use-package ess)
